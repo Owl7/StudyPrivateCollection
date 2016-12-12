@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  StudyPrivateCollection
 //
-//  Created by 车车 on 16/12/12.
+//  Created by pengyiwei on 16/12/12.
 //  Copyright © 2016年 pengyiwei. All rights reserved.
 //
 
