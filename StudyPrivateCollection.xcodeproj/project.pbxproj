@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B6CCB981E03B40900476A35 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB971E03B40900476A35 /* BookListViewController.m */; };
+		8B6CCB9B1E03B44600476A35 /* BookScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9A1E03B44600476A35 /* BookScannerViewController.m */; };
+		8B6CCB9E1E03B46600476A35 /* BookAnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */; };
+		8B6CCBA51E03CB0E00476A35 /* BookScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCBA41E03CB0E00476A35 /* BookScannerView.m */; };
 		8BD7BFB81DFE3D4D00F48966 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7BFB71DFE3D4D00F48966 /* main.m */; };
 		8BD7BFBB1DFE3D4D00F48966 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7BFBA1DFE3D4D00F48966 /* AppDelegate.m */; };
-		8BD7BFBE1DFE3D4D00F48966 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7BFBD1DFE3D4D00F48966 /* ViewController.m */; };
 		8BD7BFC11DFE3D4D00F48966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BFBF1DFE3D4D00F48966 /* Main.storyboard */; };
 		8BD7BFC31DFE3D4D00F48966 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BFC21DFE3D4D00F48966 /* Assets.xcassets */; };
 		8BD7BFC61DFE3D4D00F48966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BFC41DFE3D4D00F48966 /* LaunchScreen.storyboard */; };
@@ -35,12 +38,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B6CCB961E03B40900476A35 /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
+		8B6CCB971E03B40900476A35 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
+		8B6CCB991E03B44600476A35 /* BookScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookScannerViewController.h; sourceTree = "<group>"; };
+		8B6CCB9A1E03B44600476A35 /* BookScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookScannerViewController.m; sourceTree = "<group>"; };
+		8B6CCB9C1E03B46600476A35 /* BookAnalyticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAnalyticsViewController.h; sourceTree = "<group>"; };
+		8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookAnalyticsViewController.m; sourceTree = "<group>"; };
+		8B6CCBA31E03CB0E00476A35 /* BookScannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookScannerView.h; sourceTree = "<group>"; };
+		8B6CCBA41E03CB0E00476A35 /* BookScannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookScannerView.m; sourceTree = "<group>"; };
 		8BD7BFB31DFE3D4D00F48966 /* StudyPrivateCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyPrivateCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD7BFB71DFE3D4D00F48966 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BD7BFB91DFE3D4D00F48966 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8BD7BFBA1DFE3D4D00F48966 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8BD7BFBC1DFE3D4D00F48966 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8BD7BFBD1DFE3D4D00F48966 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8BD7BFC01DFE3D4D00F48966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BD7BFC21DFE3D4D00F48966 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BD7BFC51DFE3D4D00F48966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +87,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B6CCB951E03B32300476A35 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8B6CCBA11E03CAAA00476A35 /* BookAnalytic */,
+				8B6CCBA01E03CA9B00476A35 /* BookScanner */,
+				8B6CCB9F1E03CA8800476A35 /* BookList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8B6CCB9F1E03CA8800476A35 /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				8B6CCB961E03B40900476A35 /* BookListViewController.h */,
+				8B6CCB971E03B40900476A35 /* BookListViewController.m */,
+			);
+			name = BookList;
+			path = Booklist;
+			sourceTree = "<group>";
+		};
+		8B6CCBA01E03CA9B00476A35 /* BookScanner */ = {
+			isa = PBXGroup;
+			children = (
+				8B6CCBA21E03CACD00476A35 /* ScannerView */,
+				8B6CCB991E03B44600476A35 /* BookScannerViewController.h */,
+				8B6CCB9A1E03B44600476A35 /* BookScannerViewController.m */,
+			);
+			path = BookScanner;
+			sourceTree = "<group>";
+		};
+		8B6CCBA11E03CAAA00476A35 /* BookAnalytic */ = {
+			isa = PBXGroup;
+			children = (
+				8B6CCB9C1E03B46600476A35 /* BookAnalyticsViewController.h */,
+				8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */,
+			);
+			path = BookAnalytic;
+			sourceTree = "<group>";
+		};
+		8B6CCBA21E03CACD00476A35 /* ScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				8B6CCBA31E03CB0E00476A35 /* BookScannerView.h */,
+				8B6CCBA41E03CB0E00476A35 /* BookScannerView.m */,
+			);
+			path = ScannerView;
+			sourceTree = "<group>";
+		};
 		8BD7BFAA1DFE3D4D00F48966 = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +158,9 @@
 		8BD7BFB51DFE3D4D00F48966 /* StudyPrivateCollection */ = {
 			isa = PBXGroup;
 			children = (
+				8B6CCB951E03B32300476A35 /* Modules */,
 				8BD7BFB91DFE3D4D00F48966 /* AppDelegate.h */,
 				8BD7BFBA1DFE3D4D00F48966 /* AppDelegate.m */,
-				8BD7BFBC1DFE3D4D00F48966 /* ViewController.h */,
-				8BD7BFBD1DFE3D4D00F48966 /* ViewController.m */,
 				8BD7BFBF1DFE3D4D00F48966 /* Main.storyboard */,
 				8BD7BFC21DFE3D4D00F48966 /* Assets.xcassets */,
 				8BD7BFC41DFE3D4D00F48966 /* LaunchScreen.storyboard */,
@@ -276,7 +332,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BD7BFBE1DFE3D4D00F48966 /* ViewController.m in Sources */,
+				8B6CCB9E1E03B46600476A35 /* BookAnalyticsViewController.m in Sources */,
+				8B6CCB9B1E03B44600476A35 /* BookScannerViewController.m in Sources */,
+				8B6CCBA51E03CB0E00476A35 /* BookScannerView.m in Sources */,
+				8B6CCB981E03B40900476A35 /* BookListViewController.m in Sources */,
 				8BD7BFBB1DFE3D4D00F48966 /* AppDelegate.m in Sources */,
 				8BD7BFB81DFE3D4D00F48966 /* main.m in Sources */,
 			);
@@ -429,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5RLGZU9ETV;
 				INFOPLIST_FILE = StudyPrivateCollection/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pengyw.StudyPrivateCollection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,6 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5RLGZU9ETV;
 				INFOPLIST_FILE = StudyPrivateCollection/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pengyw.StudyPrivateCollection;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "BookListViewController.h"
+#import "BookScannerViewController.h"
+#import "BookAnalyticsViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -18,7 +21,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    tabVC.delegate = self;
+    
+    self.window.rootViewController = tabVC;
+    [self.window makeKeyAndVisible];
+    
+    BookListViewController *listVC = [BookListViewController new];
+    listVC.tabBarItem.title = @"我的藏书";
+    listVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-collection"];
+    listVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    BookScannerViewController *scannerVC = [BookScannerViewController new];
+    scannerVC.tabBarItem.title = @"扫码藏书";
+    scannerVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-scan"];
+    scannerVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    BookAnalyticsViewController *analyticsVC = [BookAnalyticsViewController new];
+    analyticsVC.tabBarItem.title = @"我的";
+    analyticsVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-me"];
+    analyticsVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    tabVC.viewControllers = @[listVC, scannerVC, analyticsVC];
+    tabVC.tabBar.itemPositioning = UITabBarItemPositioningCentered;
     
     return YES;
 }
@@ -49,6 +77,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark -- tabber
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    if ([viewController isKindOfClass:[BookScannerViewController class]]) {
+        BookScannerViewController *scannerVC = [BookScannerViewController new];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:scannerVC];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        return NO;
+    }
+    
+    return YES;
+}
+
 
 
 @end

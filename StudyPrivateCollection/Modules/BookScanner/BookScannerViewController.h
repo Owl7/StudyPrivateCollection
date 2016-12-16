@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  BookScannerViewController.h
 //  StudyPrivateCollection
 //
-//  Created by pengyiwei on 16/12/12.
+//  Created by 车车 on 16/12/16.
 //  Copyright © 2016年 pengyiwei. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BookScannerViewController : UIViewController
 
 @end
-
