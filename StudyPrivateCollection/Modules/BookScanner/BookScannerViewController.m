@@ -7,8 +7,11 @@
 //
 
 #import "BookScannerViewController.h"
+#import "BookScannerView.h"
 
 @interface BookScannerViewController ()
+
+@property (nonatomic, strong) BookScannerView *scanView;
 
 @end
 
@@ -17,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self initNavigation];
     [self initSubviews];
 }
@@ -73,7 +76,9 @@
 #pragma mark - initSubViews
 
 - (void)initSubviews {
-    
+    [self initCamear];
+    [self initScannerView];
+    [self initTip];
 }
 
 - (void)initCamear {
@@ -81,7 +86,12 @@
 }
 
 - (void)initScannerView {
+    self.scanView = [[BookScannerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) rectSize:CGSizeMake(230.0, 230.0) offsetY:-43.0];
+    self.scanView.backgroundColor = [UIColor clearColor];
+    self.scanView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.scanView];
     
+    [self.scanView startAnimation];
 }
 
 - (void)initTip {

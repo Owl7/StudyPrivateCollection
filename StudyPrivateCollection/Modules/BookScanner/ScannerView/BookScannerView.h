@@ -10,6 +10,10 @@
 
 @interface BookScannerView : UIView
 
-- (id)initWithFrame:(CGRect) rectSize:(CGSize)size offsetY:(CGFloat)offsetY;
+- (id)initWithFrame:(CGRect)frame rectSize:(CGSize)size offsetY:(CGFloat)offsetY;
+
+- (void)startAnimation;
+
+- (void)stopAnimation;
 
 @end
