@@ -9,9 +9,19 @@
 #import "BookScannerViewController.h"
 #import "BookScannerView.h"
 
-@interface BookScannerViewController ()
+#import <AVFoundation/AVCaptureSession.h>
+#import <AVFoundation/AVCaptureDevice.h>
+#import <AVFoundation/AVMediaFormat.h>
+#import <AVFoundation/AVCaptureInput.h>
+#import <AVFoundation/AVCaptureOutput.h>
+#import <AVFoundation/AVCaptureVideoPreviewLayer.h>
+#import <AVFoundation/AVMetaDataObject.h>
+
+@interface BookScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) BookScannerView *scanView;
+
+@property (nonatomic, strong) AVCaptureSession *captureSession;
 
 @end
 
@@ -23,6 +33,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self initNavigation];
     [self initSubviews];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +94,42 @@
 
 - (void)initCamear {
     
+    self.captureSession = [[AVCaptureSession alloc] init];
+    
+    [self.captureSession beginConfiguration];
+    
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+    
+    // 输入
+    NSError *error = nil;
+    AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    
+    if (!error) {
+        if ([self.captureSession canAddInput:captureInput]) {
+            [self.captureSession addInput:captureInput];
+        }
+    }else {
+        NSLog(@"Input Error : %@", error);
+    }
+    
+    // 输出
+    AVCaptureMetadataOutput *caputeOutput = [[AVCaptureMetadataOutput alloc] init];
+    [caputeOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    
+    if ([self.captureSession canAddOutput:caputeOutput]) {
+        [self.captureSession addOutput:caputeOutput];
+        caputeOutput.metadataObjectTypes = @[AVMetadataObjectTypeEAN13Code];
+    }
+    
+    // 添加预览画面
+    CALayer *layer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
+    layer.frame = self.view.layer.frame;
+    [self.view.layer addSublayer:layer];
+    
+    [self.captureSession commitConfiguration];
+
+    [self.captureSession startRunning];
+    
 }
 
 - (void)initScannerView {
@@ -96,6 +143,35 @@
 
 - (void)initTip {
     
+}
+
+#pragma mark -- ISBN 识别
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
+    
+    NSString *ISBN = nil;
+    
+    for (AVMetadataObject *metadata in metadataObjects) {
+        ISBN = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
+        break;
+    }
+    
+    if (!ISBN) {
+        NSLog(@"ISBN : %@", ISBN);
+        [self.captureSession stopRunning];
+        [self.scanView stopAnimation];
+    }
+    
+}
+
+- (void)checkAVAuthorizationStatus {
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    NSString *tips = NSLocalizedString(@"AVAuthorization", @"你没有权限访问相机");
+    if (status == AVAuthorizationStatusAuthorized) {
+        [self initCamear];
+    }else {
+        NSLog(@"%@", tips);
+    }
 }
 
 @end

@@ -64,7 +64,7 @@
         _textLabel.text = @"将条形码放入输入框内，即可自动扫描";
         _textLabel.textColor = [UIColor whiteColor];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.font = [UIFont systemFontOfSize:14];
+        _textLabel.font = [UIFont systemFontOfSize:13];
         [self addSubview:_textLabel];
     }
     return _textLabel;
