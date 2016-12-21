@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BookScannerView.h"
 
-@interface BookScannerViewController : UIViewController
+#import <AVFoundation/AVCaptureSession.h>
+#import <AVFoundation/AVCaptureDevice.h>
+#import <AVFoundation/AVMediaFormat.h>
+#import <AVFoundation/AVCaptureInput.h>
+#import <AVFoundation/AVCaptureOutput.h>
+#import <AVFoundation/AVCaptureVideoPreviewLayer.h>
+#import <AVFoundation/AVMetadataObject.h>
+
+@interface BookScannerViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
+
+@property (nonatomic, strong) BookScannerView *scanView;
+
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+
+- (void)initSubviews;
 
 @end

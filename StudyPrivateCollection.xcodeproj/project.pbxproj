@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13B51B469A9EE6BF8679BB5B /* libPods-StudyPrivateCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D9087FE37C045DEB72D853 /* libPods-StudyPrivateCollection.a */; };
 		8B6CCB981E03B40900476A35 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB971E03B40900476A35 /* BookListViewController.m */; };
 		8B6CCB9B1E03B44600476A35 /* BookScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9A1E03B44600476A35 /* BookScannerViewController.m */; };
 		8B6CCB9E1E03B46600476A35 /* BookAnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */; };
@@ -38,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273866E3312D8A48A57C0702 /* Pods-StudyPrivateCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyPrivateCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudyPrivateCollection/Pods-StudyPrivateCollection.debug.xcconfig"; sourceTree = "<group>"; };
+		44D9087FE37C045DEB72D853 /* libPods-StudyPrivateCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StudyPrivateCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		467D8AFA5779B9F236940E06 /* Pods-StudyPrivateCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyPrivateCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudyPrivateCollection/Pods-StudyPrivateCollection.release.xcconfig"; sourceTree = "<group>"; };
+		8B6903D91E0A717700DCA1CC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8B6CCB961E03B40900476A35 /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
 		8B6CCB971E03B40900476A35 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
 		8B6CCB991E03B44600476A35 /* BookScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookScannerViewController.h; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B51B469A9EE6BF8679BB5B /* libPods-StudyPrivateCollection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2109EB644D2FC1C8A7101011 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				273866E3312D8A48A57C0702 /* Pods-StudyPrivateCollection.debug.xcconfig */,
+				467D8AFA5779B9F236940E06 /* Pods-StudyPrivateCollection.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C29B0D91F6F4D6C152581E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44D9087FE37C045DEB72D853 /* libPods-StudyPrivateCollection.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B6CCB951E03B32300476A35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +165,8 @@
 				8BD7BFCF1DFE3D4E00F48966 /* StudyPrivateCollectionTests */,
 				8BD7BFDA1DFE3D4E00F48966 /* StudyPrivateCollectionUITests */,
 				8BD7BFB41DFE3D4D00F48966 /* Products */,
+				2109EB644D2FC1C8A7101011 /* Pods */,
+				7C29B0D91F6F4D6C152581E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD7BFB71DFE3D4D00F48966 /* main.m */,
+				8B6903D91E0A717700DCA1CC /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,9 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BD7BFE01DFE3D4E00F48966 /* Build configuration list for PBXNativeTarget "StudyPrivateCollection" */;
 			buildPhases = (
+				F0E1665B1A4E3A7DF3B51F8B /* [CP] Check Pods Manifest.lock */,
 				8BD7BFAF1DFE3D4D00F48966 /* Sources */,
 				8BD7BFB01DFE3D4D00F48966 /* Frameworks */,
 				8BD7BFB11DFE3D4D00F48966 /* Resources */,
+				63908F161D54635F9DA03A6A /* [CP] Embed Pods Frameworks */,
+				929887425D7E750D01A8B114 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +355,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63908F161D54635F9DA03A6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudyPrivateCollection/Pods-StudyPrivateCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		929887425D7E750D01A8B114 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudyPrivateCollection/Pods-StudyPrivateCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0E1665B1A4E3A7DF3B51F8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BD7BFAF1DFE3D4D00F48966 /* Sources */ = {
@@ -484,9 +561,12 @@
 		};
 		8BD7BFE11DFE3D4E00F48966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273866E3312D8A48A57C0702 /* Pods-StudyPrivateCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5948W8AF82;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = StudyPrivateCollection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -497,9 +577,12 @@
 		};
 		8BD7BFE21DFE3D4E00F48966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 467D8AFA5779B9F236940E06 /* Pods-StudyPrivateCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5948W8AF82;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = StudyPrivateCollection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

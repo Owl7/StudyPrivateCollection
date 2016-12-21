@@ -13,6 +13,8 @@
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
+@property (nonatomic, strong) BookScannerViewController *scannerVC;
+
 @end
 
 @implementation AppDelegate
@@ -20,6 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 开启网络监测
+    [[AFNetworkReachabilityManager manager] startMonitoring];
+    
+    // 状态栏菊花
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -36,6 +43,7 @@
     listVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
     
     BookScannerViewController *scannerVC = [BookScannerViewController new];
+    self.scannerVC = scannerVC;
     scannerVC.tabBarItem.title = @"扫码藏书";
     scannerVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-scan"];
     scannerVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
@@ -61,11 +69,16 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    [self.scannerVC.captureSession stopRunning];
+//    [self.scannerVC.scanView stopAnimation];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+//    [self.scannerVC initSubviews];
+//    [self.scannerVC.captureSession startRunning];
+//    [self.scannerVC.scanView startAnimation];
 }
 
 

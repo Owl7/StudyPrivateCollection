@@ -7,38 +7,43 @@
 //
 
 #import "BookScannerViewController.h"
-#import "BookScannerView.h"
 
-#import <AVFoundation/AVCaptureSession.h>
-#import <AVFoundation/AVCaptureDevice.h>
-#import <AVFoundation/AVMediaFormat.h>
-#import <AVFoundation/AVCaptureInput.h>
-#import <AVFoundation/AVCaptureOutput.h>
-#import <AVFoundation/AVCaptureVideoPreviewLayer.h>
-#import <AVFoundation/AVMetaDataObject.h>
+@interface BookScannerViewController ()
 
-@interface BookScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
-
-@property (nonatomic, strong) BookScannerView *scanView;
-
-@property (nonatomic, strong) AVCaptureSession *captureSession;
 
 @end
 
 @implementation BookScannerViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initNavigation];
+    [self initSubviews];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.captureSession stopRunning];
+    [self.scanView stopAnimation];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    [self initNavigation];
-    [self initSubviews];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (AVCaptureSession *)captureSession {
+    if (!_captureSession) {
+        _captureSession = [[AVCaptureSession alloc] init];
+    }
+    return _captureSession;
 }
 
 
@@ -87,18 +92,18 @@
 #pragma mark - initSubViews
 
 - (void)initSubviews {
+    
     [self initCamear];
     [self initScannerView];
     [self initTip];
+    
 }
 
 - (void)initCamear {
     
-    self.captureSession = [[AVCaptureSession alloc] init];
-    
     [self.captureSession beginConfiguration];
     
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     // 输入
     NSError *error = nil;
@@ -133,12 +138,14 @@
 }
 
 - (void)initScannerView {
+    
     self.scanView = [[BookScannerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) rectSize:CGSizeMake(230.0, 230.0) offsetY:-43.0];
     self.scanView.backgroundColor = [UIColor clearColor];
     self.scanView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.scanView];
     
     [self.scanView startAnimation];
+    
 }
 
 - (void)initTip {
@@ -156,10 +163,11 @@
         break;
     }
     
-    if (!ISBN) {
+    if (ISBN != nil) {
         NSLog(@"ISBN : %@", ISBN);
         [self.captureSession stopRunning];
         [self.scanView stopAnimation];
+        [self fetchBookWithISBN:ISBN];
     }
     
 }
@@ -173,5 +181,66 @@
         NSLog(@"%@", tips);
     }
 }
+
+- (void)fetchBookWithISBN:(NSString *)ISBN {
+    
+//    https://api.douban.com/v2/book/search
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/%@", ISBN]]];
+    
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        if (error != nil) {
+            NSLog(@"error : %@", error);
+        }else {
+            NSLog(@"response : %@, responseObject : %@", response, responseObject);
+            
+            NSString *title = [responseObject objectForKey:@"title"];
+            NSString *author = [[responseObject objectForKey:@"author"] firstObject];
+            
+            UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@\n%@\n%@", title, ISBN, author] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *detailAction = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *nextAction = [UIAlertAction actionWithTitle:@"收藏并继续扫描" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.captureSession startRunning];
+                [self.scanView startAnimation];
+            }];
+            
+            [alerController addAction:detailAction];
+            [alerController addAction:nextAction];
+            
+            [self presentViewController:alerController animated:YES completion:nil];
+        }
+        
+    }];
+    
+    [dataTask resume];
+    
+}
+
+- (void)dealloc {
+    [self.captureSession stopRunning];
+    [self.scanView stopAnimation];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
