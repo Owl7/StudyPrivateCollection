@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookAnalyticsViewController : UIViewController
+@interface BookAnalyticsViewController : BaseViewController
 
 @end

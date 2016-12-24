@@ -7,9 +7,14 @@
 //
 
 #import "BookScannerViewController.h"
+#import "BookEntity.h"
+#import "BookDetailViewController.h"
 
 @interface BookScannerViewController ()
 
+@property (nonatomic, strong) BookScannerView *scanView;
+
+@property (nonatomic, strong) AVCaptureSession *captureSession;
 
 @end
 
@@ -56,11 +61,6 @@
 
 - (void)initNavigation {
     
-    //生成透明导航栏
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"back-button"] forState:UIControlStateNormal];
     [backBtn sizeToFit];
@@ -77,6 +77,14 @@
     [flashBtn addTarget:self action:@selector(clickFlash:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:flashBtn];
     
+}
+
+- (BOOL)shouldShadowImage {
+    return NO;
+}
+
+- (UIImage *)navigationBarBackgroundImage {
+    return [UIImage new];
 }
 
 - (void)clickBack {
@@ -192,7 +200,7 @@
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/%@", ISBN]]];
     
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         if (error != nil) {
@@ -205,7 +213,16 @@
             
             UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@\n%@\n%@", title, ISBN, author] preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *detailAction = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *detailAction = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                BookEntity *bookEntity = [[BookEntity alloc] initWithDictionary:responseObject];
+                
+                BookDetailViewController *bookDetail = [BookDetailViewController new];
+                [bookDetail setBookEntity:bookEntity];
+                [self.navigationController pushViewController:bookDetail animated:YES];
+                
+            }];
+            
             UIAlertAction *nextAction = [UIAlertAction actionWithTitle:@"收藏并继续扫描" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self.captureSession startRunning];
                 [self.scanView startAnimation];
@@ -216,7 +233,7 @@
             
             [self presentViewController:alerController animated:YES completion:nil];
         }
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     
     [dataTask resume];

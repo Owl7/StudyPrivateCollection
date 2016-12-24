@@ -10,6 +10,7 @@
 #import "BookListViewController.h"
 #import "BookScannerViewController.h"
 #import "BookAnalyticsViewController.h"
+#import "BaseNavigationController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -38,6 +39,8 @@
     [self.window makeKeyAndVisible];
     
     BookListViewController *listVC = [BookListViewController new];
+    BaseNavigationController *listNavi = [[BaseNavigationController alloc] initWithRootViewController:listVC];
+    listVC.title = @"我的藏书";
     listVC.tabBarItem.title = @"我的藏书";
     listVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-collection"];
     listVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
@@ -49,11 +52,13 @@
     scannerVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
     
     BookAnalyticsViewController *analyticsVC = [BookAnalyticsViewController new];
+    BaseNavigationController *analyticsNavi = [[BaseNavigationController alloc] initWithRootViewController:analyticsVC];
+    analyticsVC.title = @"我的";
     analyticsVC.tabBarItem.title = @"我的";
     analyticsVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-me"];
     analyticsVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
     
-    tabVC.viewControllers = @[listVC, scannerVC, analyticsVC];
+    tabVC.viewControllers = @[listNavi, scannerVC, analyticsNavi];
     tabVC.tabBar.itemPositioning = UITabBarItemPositioningCentered;
     
     return YES;

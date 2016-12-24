@@ -17,12 +17,7 @@
 #import <AVFoundation/AVCaptureVideoPreviewLayer.h>
 #import <AVFoundation/AVMetadataObject.h>
 
-@interface BookScannerViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
+@interface BookScannerViewController : BaseViewController<AVCaptureMetadataOutputObjectsDelegate>
 
-@property (nonatomic, strong) BookScannerView *scanView;
-
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-
-- (void)initSubviews;
 
 @end

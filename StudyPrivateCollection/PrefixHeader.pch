@@ -12,8 +12,14 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/225.0 green:((float)((rgbValue & 0x00FF00) >> 8))/225.0 blue:((float)(rgbValue & 0x0000FF))/225.0 alpha:1.0]
+
+#define UIColorFromRGBA(rgbValue, alphaValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/225.0 green:((float)((rgbValue & 0x00FF00) >> 8))/225.0 blue:((float)(rgbValue & 0x0000FF))/225.0 alpha:alphaValue]
+
+#import "BaseViewController.h"
 
 #import <AFNetworking/AFNetworking.h>
-
+#import "MBProgressHUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #endif /* PrefixHeader_pch */
