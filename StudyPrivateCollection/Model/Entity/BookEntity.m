@@ -53,6 +53,27 @@
     
 }
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)result {
+    
+    BookEntity *bookEntity = [[[self class] alloc] init];
+    
+    bookEntity.id = [result longLongIntForColumn:@"id"];
+    bookEntity.doubanId = [result longLongIntForColumn:@"doubanId"];
+    bookEntity.isbn10 = [result stringForColumn:@"isbn10"];
+    bookEntity.isbn13 = [result stringForColumn:@"isbn13"];
+    bookEntity.title = [result stringForColumn:@"title"];
+    bookEntity.doubanUrl = [result stringForColumn:@"doubanUrl"];
+    bookEntity.image = [result stringForColumn:@"image"];
+    bookEntity.publisher = [result stringForColumn:@"publisher"];
+    bookEntity.pubdate = [result stringForColumn:@"pubdate"];
+    bookEntity.price = [result stringForColumn:@"price"];
+    bookEntity.summary = [result stringForColumn:@"summary"];
+    bookEntity.author_intro = [result stringForColumn:@"author_intro"];
+    
+    return bookEntity;
+    
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     
     BookEntity *bookEntity = [[[self class] allocWithZone:zone] init];

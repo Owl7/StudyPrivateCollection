@@ -10,6 +10,7 @@
 #import "AuthorModel.h"
 #import "TranslatorModel.h"
 #import "TagModel.h"
+#import "BookDetailService.h"
 
 static const float kBackgroundImageViewHeight = 270.5f; // 头部背景图片高度
 static const float kCoverImageViewHeight = 161;         // 封面图片高度
@@ -24,12 +25,21 @@ static const float kSummaryLabelFontSize = 16.0f;       // 内容详情标题字
 static const float kDetailLabelFontSize = 15.0f;        // 详情字体大小
 static const float kRight = 15.0f;                      // 右边距
 static const float kLeft = 16.0f;                       // 左边距
-static const float kConverImageAndItemLabel = 14.0f;     // ItemLabel距离封面图片距离
+static const float kConverImageAndItemLabel = 14.0f;    // ItemLabel距离封面图片距离
 
 @interface BookDetailViewController ()<UIScrollViewDelegate>
 
 //
 @property (nonatomic, strong) UIImageView *backgroundImageView;
+
+// 收藏按钮
+@property (nonatomic, strong) UIButton *favButton;
+
+// 取消收藏按钮
+@property (nonatomic, strong) UIButton *unFavButton;
+
+// bookId
+@property (nonatomic, assign) long long bookId;
 
 @end
 
@@ -179,20 +189,51 @@ static const float kConverImageAndItemLabel = 14.0f;     // ItemLabel距离封�
     
     // 收藏按钮
     UIButton *favButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.favButton = favButton;
     favButton.translatesAutoresizingMaskIntoConstraints = NO;
     favButton.titleLabel.font = [UIFont systemFontOfSize:kFavButtonFontSize];
     [favButton setBackgroundColor:[UIColor whiteColor]];
     [favButton setTitle:@"收藏" forState:UIControlStateNormal];
-    [favButton setTitle:@"已收藏" forState:UIControlStateSelected];
+    [favButton setTitle:@"已收藏" forState:UIControlStateDisabled];
     [favButton setTitleColor:UIColorFromRGB(0x00A25B) forState:UIControlStateNormal];
-    [favButton setTitleColor:UIColorFromRGB(0xBBBBBB) forState:UIControlStateSelected];
+    [favButton setTitleColor:UIColorFromRGB(0xBBBBBB) forState:UIControlStateDisabled];
     favButton.layer.cornerRadius = 2.0f;
     [favButton addTarget:self action:@selector(didTapFavButton:) forControlEvents:UIControlEventTouchUpInside];
     
     [headView addSubview:favButton];
     
+    // 检查是否已经收藏过了
+    BookEntity *bookEntity = [BookDetailService searchFavedBookWithDoubanId:self.bookEntity.doubanId];
+    if (bookEntity) {
+        favButton.enabled = NO;
+    }
+    
     [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[coverImageView]-14-[favButton(==70)]" options:NSLayoutFormatAlignAllBottom metrics:nil views:NSDictionaryOfVariableBindings(coverImageView, favButton)]];
     [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[favButton(==27)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(favButton)]];
+    
+    // 取消收藏按钮
+    UIButton *unFavButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.unFavButton = unFavButton;
+    unFavButton.translatesAutoresizingMaskIntoConstraints = NO;
+    unFavButton.titleLabel.font = [UIFont systemFontOfSize:kFavButtonFontSize];
+    [unFavButton setBackgroundColor:[UIColor whiteColor]];
+    [unFavButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+    [unFavButton setTitleColor:UIColorFromRGB(0x00A25B) forState:UIControlStateNormal];
+    unFavButton.layer.cornerRadius = 2.0f;
+    [unFavButton addTarget:self action:@selector(didTapUnfavButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [headView addSubview:unFavButton];
+    
+    [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[favButton]-10-[unFavButton(==70)]" options:NSLayoutFormatAlignAllBottom metrics:nil views:NSDictionaryOfVariableBindings(favButton, unFavButton)]];
+    [headView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[unFavButton(==27)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(unFavButton)]];
+    
+    if (favButton.isEnabled == NO) {
+        unFavButton.hidden = NO;
+    } else {
+        unFavButton.hidden = YES;
+        favButton.enabled = YES;
+        unFavButton = nil;
+    }
     
     // 底部
     UIView *bodyView = [UIView new];
@@ -243,10 +284,31 @@ static const float kConverImageAndItemLabel = 14.0f;     // ItemLabel距离封�
 
 - (void)didTapFavButton:(UIButton *)button {
     //
+    long long bookId = [BookDetailService favBook:self.bookEntity];
+    if (bookId > 0) {
+        [self.favButton setEnabled:NO];
+        self.unFavButton.hidden = NO;
+        NSLog(@"%lld", bookId);
+    } else {
+        NSLog(@"收藏失败 !");
+    }
 }
 
 
-
+- (void)didTapUnfavButton:(UIButton *)button {
+    
+    BookEntity *bookEntity = [BookDetailService searchFavedBookWithDoubanId:self.bookEntity.doubanId];
+    
+    BOOL success = [BookDetailService unFavBookWithId:bookEntity.id];
+    
+    if (success) {
+        self.unFavButton.hidden = YES;
+        [self.favButton setEnabled:YES];
+    } else {
+        NSLog(@"取消收藏失败! ");
+    }
+    
+}
 
 
 

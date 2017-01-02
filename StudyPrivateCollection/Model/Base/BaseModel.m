@@ -26,6 +26,14 @@
     
 }
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)result {
+    
+    NSString *msg = [NSString stringWithFormat:@"%s is no implemented for the class %@", sel_getName(_cmd), self];
+    
+    @throw [NSException exceptionWithName:@"BookModelInitializerException" reason:msg userInfo:nil];
+    
+}
+
 #pragma mark - convert
 
 - (NSArray *)modelArrayFromDictArray:(NSArray *)array withModelClass:(Class)modelClass {

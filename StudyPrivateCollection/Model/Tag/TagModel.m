@@ -22,6 +22,18 @@
     
 }
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)result {
+    
+    TagModel *tag = [[[self class] alloc] init];
+    
+    tag.bookId = [result longLongIntForColumn:@"bookId"];
+    tag.name = [result stringForColumn:@"name"];
+    tag.count = [result longForColumn:@"count"];
+    
+    return tag;
+    
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     
     TagModel *tag = [[[self class] allocWithZone:zone] init];

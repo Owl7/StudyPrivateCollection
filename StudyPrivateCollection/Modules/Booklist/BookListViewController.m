@@ -7,8 +7,17 @@
 //
 
 #import "BookListViewController.h"
+#import "BookListTableViewController.h"
+#import "BookListCollectionViewController.h"
+
+typedef NS_ENUM(NSUInteger, BookListMode) {
+    BookListModeTableView,
+    BookListModeColectionView
+};
 
 @interface BookListViewController ()
+
+@property (nonatomic, assign) BookListMode mode;
 
 @end
 
@@ -16,7 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self initNavigation];
+    
+    self.mode = BookListModeTableView;
+    
+    [self switchToModel:self.mode];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +39,52 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)initNavigation {
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"list-switch-collection"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapSwitchButton:)];
+    
 }
-*/
+
+- (void)didTapSwitchButton:(UIBarButtonItem *)item {
+    
+    [self.childViewControllers makeObjectsPerformSelector:@selector(willMoveToParentViewController:) withObject:nil];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.childViewControllers makeObjectsPerformSelector:@selector(removeFromParentViewController)];
+    [self.childViewControllers makeObjectsPerformSelector:@selector(didMoveToParentViewController:) withObject:nil];
+    
+    if (self.mode == BookListModeTableView) {
+        self.mode = BookListModeColectionView;
+        item.image = [UIImage imageNamed:@"list-switch-table"];
+    } else {
+        self.mode = BookListModeTableView;
+        item.image = [UIImage imageNamed:@"list-switch-collection"];
+    }
+    
+    [self switchToModel:self.mode];
+    
+}
+
+- (void)switchToModel:(BookListMode)mode {
+    
+    if (mode == BookListModeTableView) {
+        BookListTableViewController *tableVC = [BookListTableViewController new];
+        [tableVC willMoveToParentViewController:self];
+        [self addChildViewController:tableVC];
+        [self.view addSubview:tableVC.view];
+        tableVC.view.frame = self.view.bounds;
+        [tableVC didMoveToParentViewController:self];
+    } else {
+        BookListCollectionViewController *collectionVC = [BookListCollectionViewController new];
+        [collectionVC willMoveToParentViewController:self];
+        [self addChildViewController:collectionVC];
+        [self.view addSubview:collectionVC.view];
+        collectionVC.view.frame = self.view.bounds;
+        [collectionVC didMoveToParentViewController:self];
+    }
+    
+}
 
 @end

@@ -9,6 +9,7 @@
 #import "BookScannerViewController.h"
 #import "BookEntity.h"
 #import "BookDetailViewController.h"
+#import "BookDetailService.h"
 
 @interface BookScannerViewController ()
 
@@ -54,11 +55,6 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
 - (void)initNavigation {
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -94,7 +90,30 @@
 - (void)clickFlash:(UIButton *)button {
     button.selected = !button.selected;
     //开启和关闭手电筒
+    [self turnTorchOn:button.selected];
+}
+
+-(void)turnTorchOn:(bool)on {
     
+    Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
+    if (captureDeviceClass != nil) {
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([device hasTorch] && [device hasFlash]){
+            [device lockForConfiguration:nil];
+            if (on) {
+                [device setTorchMode:AVCaptureTorchModeOn];
+                [device setFlashMode:AVCaptureFlashModeOn];
+            } else {
+                [device setTorchMode:AVCaptureTorchModeOff];
+                [device setFlashMode:AVCaptureFlashModeOff];
+            }
+            [device unlockForConfiguration];
+        }else{
+            NSLog(@"初始化失败");
+        }
+    }else{
+        NSLog(@"没有闪光设备");
+    }
 }
 
 #pragma mark - initSubViews
@@ -205,31 +224,54 @@
         
         if (error != nil) {
             NSLog(@"error : %@", error);
-        }else {
-            NSLog(@"response : %@, responseObject : %@", response, responseObject);
+            UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"提示" message:@"暂无此书数据" preferredStyle:UIAlertControllerStyleAlert];
             
+            UIAlertAction *detailAction = [UIAlertAction actionWithTitle:@"返回继续扫描" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self.captureSession startRunning];
+                [self.scanView startAnimation];
+            }];
+            [alerController addAction:detailAction];
+            
+            [self presentViewController:alerController animated:YES completion:nil];
+        }else {
+            
+            NSLog(@"response : %@, responseObject : %@", response, responseObject);
             NSString *title = [responseObject objectForKey:@"title"];
             NSString *author = [[responseObject objectForKey:@"author"] firstObject];
             
             UIAlertController *alerController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@\n%@\n%@", title, ISBN, author] preferredStyle:UIAlertControllerStyleAlert];
             
+            BookEntity *bookEntity = [[BookEntity alloc] initWithDictionary:responseObject];
+            
             UIAlertAction *detailAction = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                BookEntity *bookEntity = [[BookEntity alloc] initWithDictionary:responseObject];
                 
                 BookDetailViewController *bookDetail = [BookDetailViewController new];
                 [bookDetail setBookEntity:bookEntity];
                 [self.navigationController pushViewController:bookDetail animated:YES];
                 
             }];
-            
-            UIAlertAction *nextAction = [UIAlertAction actionWithTitle:@"收藏并继续扫描" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self.captureSession startRunning];
-                [self.scanView startAnimation];
-            }];
-            
             [alerController addAction:detailAction];
-            [alerController addAction:nextAction];
+            
+            BookEntity *favedBookEntity = [BookDetailService searchFavedBookWithDoubanId:bookEntity.doubanId];
+            if (!favedBookEntity) {
+                
+                UIAlertAction *nextAction = [UIAlertAction actionWithTitle:@"收藏并继续扫描" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    long long bookId = [BookDetailService favBook:bookEntity];
+                    
+                    if (bookId > 0) {
+                        NSLog(@"%lld", bookId);
+                    } else {
+                        NSLog(@"收藏失败");
+                    }
+                    
+                    [self.captureSession startRunning];
+                    [self.scanView startAnimation];
+                    
+                }];
+                [alerController addAction:nextAction];
+                
+            }
             
             [self presentViewController:alerController animated:YES completion:nil];
         }

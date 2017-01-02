@@ -16,4 +16,6 @@
 // 作者名字
 @property (nonatomic, copy) NSString *name;
 
+@property (nonatomic, strong) UIColor *color;
+
 @end

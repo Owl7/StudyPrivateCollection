@@ -14,8 +14,34 @@
 		844987251E0D75CD00FD008A /* TranslatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987241E0D75CD00FD008A /* TranslatorModel.m */; };
 		844987291E0D762D00FD008A /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987281E0D762D00FD008A /* TagModel.m */; };
 		8449872D1E0D77E400FD008A /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449872C1E0D77E400FD008A /* BookDetailViewController.m */; };
+		844987321E10B5FD00FD008A /* BookDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987311E10B5FD00FD008A /* BookDBHelper.m */; };
+		844987381E10BE6800FD008A /* BaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987371E10BE6800FD008A /* BaseDAO.m */; };
+		844987421E10BF4C00FD008A /* BookEntityDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987411E10BF4C00FD008A /* BookEntityDAO.m */; };
+		844987451E10BF6200FD008A /* AuthorDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987441E10BF6200FD008A /* AuthorDAO.m */; };
+		844987481E10BF7A00FD008A /* TranslatorDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987471E10BF7A00FD008A /* TranslatorDAO.m */; };
+		8449874B1E10BF8B00FD008A /* TagDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449874A1E10BF8B00FD008A /* TagDAO.m */; };
+		8449874F1E10C40100FD008A /* BookDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449874E1E10C40100FD008A /* BookDetailService.m */; };
+		844987531E112B5100FD008A /* BookListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987521E112B5100FD008A /* BookListService.m */; };
+		844987581E11340E00FD008A /* BookListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987571E11340E00FD008A /* BookListTableViewController.m */; };
+		8449875B1E11343E00FD008A /* BookListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449875A1E11343E00FD008A /* BookListCollectionViewController.m */; };
+		8449875F1E12056F00FD008A /* BookBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449875E1E12056F00FD008A /* BookBaseTableViewCell.m */; };
+		844987641E1205EA00FD008A /* BookListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987631E1205EA00FD008A /* BookListTableViewCell.m */; };
+		844987671E120A8500FD008A /* BookListTableViewCell+BookEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987661E120A8500FD008A /* BookListTableViewCell+BookEntity.m */; };
+		8449876D1E136AAD00FD008A /* BookBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449876C1E136AAD00FD008A /* BookBaseCollectionViewCell.m */; };
+		844987701E136B0100FD008A /* BookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449876F1E136B0100FD008A /* BookCollectionViewCell.m */; };
+		844987731E136CB800FD008A /* BookCollectionViewCell+BookEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987721E136CB800FD008A /* BookCollectionViewCell+BookEntity.m */; };
+		844987771E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987761E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.m */; };
+		8449877B1E13C94000FD008A /* BookCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449877A1E13C94000FD008A /* BookCollectionViewFlowLayout.m */; };
+		844987811E152AAB00FD008A /* BookCollectionViewWaterfallHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987801E152AAB00FD008A /* BookCollectionViewWaterfallHeader.m */; };
+		844987841E152ACE00FD008A /* BookCollectionViewWaterfallFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987831E152ACE00FD008A /* BookCollectionViewWaterfallFooter.m */; };
+		844987881E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 844987871E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.m */; };
+		8449878B1E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449878A1E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.m */; };
 		844C13771E0CDB370091E135 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C13761E0CDB370091E135 /* BaseNavigationController.m */; };
 		844C137A1E0CDB720091E135 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C13791E0CDB720091E135 /* BaseViewController.m */; };
+		8477AB6C1E1762760029079D /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477AB6B1E1762760029079D /* PieChartView.m */; };
+		8477AB751E17731C0029079D /* PieChartView+Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477AB741E17731C0029079D /* PieChartView+Author.m */; };
+		8477AB7C1E17F28E0029079D /* BookAnalyticsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477AB7B1E17F28E0029079D /* BookAnalyticsTableViewCell.m */; };
+		8477AB7F1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477AB7E1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.m */; };
 		8B6CCB981E03B40900476A35 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB971E03B40900476A35 /* BookListViewController.m */; };
 		8B6CCB9B1E03B44600476A35 /* BookScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9A1E03B44600476A35 /* BookScannerViewController.m */; };
 		8B6CCB9E1E03B46600476A35 /* BookAnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */; };
@@ -62,10 +88,63 @@
 		844987281E0D762D00FD008A /* TagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
 		8449872B1E0D77E400FD008A /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		8449872C1E0D77E400FD008A /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		844987301E10B5FD00FD008A /* BookDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDBHelper.h; path = Helper/DB/BookDBHelper.h; sourceTree = "<group>"; };
+		844987311E10B5FD00FD008A /* BookDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDBHelper.m; path = Helper/DB/BookDBHelper.m; sourceTree = "<group>"; };
+		844987361E10BE6800FD008A /* BaseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDAO.h; path = Base/BaseDAO.h; sourceTree = "<group>"; };
+		844987371E10BE6800FD008A /* BaseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDAO.m; path = Base/BaseDAO.m; sourceTree = "<group>"; };
+		844987401E10BF4C00FD008A /* BookEntityDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookEntityDAO.h; path = Entity/BookEntityDAO.h; sourceTree = "<group>"; };
+		844987411E10BF4C00FD008A /* BookEntityDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookEntityDAO.m; path = Entity/BookEntityDAO.m; sourceTree = "<group>"; };
+		844987431E10BF6200FD008A /* AuthorDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorDAO.h; path = Author/AuthorDAO.h; sourceTree = "<group>"; };
+		844987441E10BF6200FD008A /* AuthorDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorDAO.m; path = Author/AuthorDAO.m; sourceTree = "<group>"; };
+		844987461E10BF7A00FD008A /* TranslatorDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TranslatorDAO.h; path = Translator/TranslatorDAO.h; sourceTree = "<group>"; };
+		844987471E10BF7A00FD008A /* TranslatorDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TranslatorDAO.m; path = Translator/TranslatorDAO.m; sourceTree = "<group>"; };
+		844987491E10BF8B00FD008A /* TagDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagDAO.h; path = Tag/TagDAO.h; sourceTree = "<group>"; };
+		8449874A1E10BF8B00FD008A /* TagDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagDAO.m; path = Tag/TagDAO.m; sourceTree = "<group>"; };
+		8449874D1E10C40100FD008A /* BookDetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailService.h; path = BookDetail/BookDetailService.h; sourceTree = "<group>"; };
+		8449874E1E10C40100FD008A /* BookDetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailService.m; path = BookDetail/BookDetailService.m; sourceTree = "<group>"; };
+		844987511E112B5100FD008A /* BookListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListService.h; path = BookList/BookListService.h; sourceTree = "<group>"; };
+		844987521E112B5100FD008A /* BookListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListService.m; path = BookList/BookListService.m; sourceTree = "<group>"; };
+		844987561E11340E00FD008A /* BookListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListTableViewController.h; path = TableView/BookListTableViewController.h; sourceTree = "<group>"; };
+		844987571E11340E00FD008A /* BookListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListTableViewController.m; path = TableView/BookListTableViewController.m; sourceTree = "<group>"; };
+		844987591E11343E00FD008A /* BookListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListCollectionViewController.h; path = CollectionView/BookListCollectionViewController.h; sourceTree = "<group>"; };
+		8449875A1E11343E00FD008A /* BookListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListCollectionViewController.m; path = CollectionView/BookListCollectionViewController.m; sourceTree = "<group>"; };
+		8449875D1E12056F00FD008A /* BookBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookBaseTableViewCell.h; path = BaseTableViewCell/BookBaseTableViewCell.h; sourceTree = "<group>"; };
+		8449875E1E12056F00FD008A /* BookBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookBaseTableViewCell.m; path = BaseTableViewCell/BookBaseTableViewCell.m; sourceTree = "<group>"; };
+		844987621E1205EA00FD008A /* BookListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListTableViewCell.h; path = TableViewCell/BookListTableViewCell.h; sourceTree = "<group>"; };
+		844987631E1205EA00FD008A /* BookListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListTableViewCell.m; path = TableViewCell/BookListTableViewCell.m; sourceTree = "<group>"; };
+		844987651E120A8500FD008A /* BookListTableViewCell+BookEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BookListTableViewCell+BookEntity.h"; path = "TableViewCell/BookListTableViewCell+BookEntity.h"; sourceTree = "<group>"; };
+		844987661E120A8500FD008A /* BookListTableViewCell+BookEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BookListTableViewCell+BookEntity.m"; path = "TableViewCell/BookListTableViewCell+BookEntity.m"; sourceTree = "<group>"; };
+		8449876B1E136AAD00FD008A /* BookBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookBaseCollectionViewCell.h; path = BaseCollectionViewCell/BookBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		8449876C1E136AAD00FD008A /* BookBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookBaseCollectionViewCell.m; path = BaseCollectionViewCell/BookBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		8449876E1E136B0100FD008A /* BookCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewCell.h; sourceTree = "<group>"; };
+		8449876F1E136B0100FD008A /* BookCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewCell.m; sourceTree = "<group>"; };
+		844987711E136CB800FD008A /* BookCollectionViewCell+BookEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookCollectionViewCell+BookEntity.h"; sourceTree = "<group>"; };
+		844987721E136CB800FD008A /* BookCollectionViewCell+BookEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookCollectionViewCell+BookEntity.m"; sourceTree = "<group>"; };
+		844987751E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookBaseCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		844987761E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookBaseCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		844987791E13C94000FD008A /* BookCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		8449877A1E13C94000FD008A /* BookCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		8449877D1E15283F00FD008A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Define/Constants.h; sourceTree = "<group>"; };
+		8449877F1E152AAB00FD008A /* BookCollectionViewWaterfallHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewWaterfallHeader.h; sourceTree = "<group>"; };
+		844987801E152AAB00FD008A /* BookCollectionViewWaterfallHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewWaterfallHeader.m; sourceTree = "<group>"; };
+		844987821E152ACE00FD008A /* BookCollectionViewWaterfallFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewWaterfallFooter.h; sourceTree = "<group>"; };
+		844987831E152ACE00FD008A /* BookCollectionViewWaterfallFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewWaterfallFooter.m; sourceTree = "<group>"; };
+		844987861E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBookCollectionViewWaterfallHeader.h; sourceTree = "<group>"; };
+		844987871E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseBookCollectionViewWaterfallHeader.m; sourceTree = "<group>"; };
+		844987891E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBookCollectionViewWaterfallFooter.h; sourceTree = "<group>"; };
+		8449878A1E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseBookCollectionViewWaterfallFooter.m; sourceTree = "<group>"; };
 		844C13751E0CDB370091E135 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		844C13761E0CDB370091E135 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		844C13781E0CDB720091E135 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		844C13791E0CDB720091E135 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		8477AB6A1E1762760029079D /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
+		8477AB6B1E1762760029079D /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
+		8477AB731E17731C0029079D /* PieChartView+Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PieChartView+Author.h"; sourceTree = "<group>"; };
+		8477AB741E17731C0029079D /* PieChartView+Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PieChartView+Author.m"; sourceTree = "<group>"; };
+		8477AB7A1E17F28E0029079D /* BookAnalyticsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAnalyticsTableViewCell.h; sourceTree = "<group>"; };
+		8477AB7B1E17F28E0029079D /* BookAnalyticsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookAnalyticsTableViewCell.m; sourceTree = "<group>"; };
+		8477AB7D1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookAnalyticsTableViewCell+Author.h"; sourceTree = "<group>"; };
+		8477AB7E1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookAnalyticsTableViewCell+Author.m"; sourceTree = "<group>"; };
 		8B6903D91E0A717700DCA1CC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8B6CCB961E03B40900476A35 /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
 		8B6CCB971E03B40900476A35 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
@@ -200,11 +279,228 @@
 			path = BookDetail;
 			sourceTree = "<group>";
 		};
+		8449872E1E10B5D300FD008A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8449872F1E10B5DB00FD008A /* DB */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		8449872F1E10B5DB00FD008A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				844987301E10B5FD00FD008A /* BookDBHelper.h */,
+				844987311E10B5FD00FD008A /* BookDBHelper.m */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
+		844987331E10BDF000FD008A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				844987501E112B2300FD008A /* BookList */,
+				8449874C1E10C3CF00FD008A /* BookDetail */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		844987341E10BDFC00FD008A /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				8449873C1E10BF0B00FD008A /* Tag */,
+				8449873B1E10BF0200FD008A /* Translator */,
+				8449873A1E10BEFA00FD008A /* Author */,
+				844987391E10BEEF00FD008A /* Entity */,
+				844987351E10BE3900FD008A /* Base */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		844987351E10BE3900FD008A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				844987361E10BE6800FD008A /* BaseDAO.h */,
+				844987371E10BE6800FD008A /* BaseDAO.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		844987391E10BEEF00FD008A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				844987401E10BF4C00FD008A /* BookEntityDAO.h */,
+				844987411E10BF4C00FD008A /* BookEntityDAO.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		8449873A1E10BEFA00FD008A /* Author */ = {
+			isa = PBXGroup;
+			children = (
+				844987431E10BF6200FD008A /* AuthorDAO.h */,
+				844987441E10BF6200FD008A /* AuthorDAO.m */,
+			);
+			name = Author;
+			sourceTree = "<group>";
+		};
+		8449873B1E10BF0200FD008A /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				844987461E10BF7A00FD008A /* TranslatorDAO.h */,
+				844987471E10BF7A00FD008A /* TranslatorDAO.m */,
+			);
+			name = Translator;
+			sourceTree = "<group>";
+		};
+		8449873C1E10BF0B00FD008A /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				844987491E10BF8B00FD008A /* TagDAO.h */,
+				8449874A1E10BF8B00FD008A /* TagDAO.m */,
+			);
+			name = Tag;
+			sourceTree = "<group>";
+		};
+		8449874C1E10C3CF00FD008A /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8449874D1E10C40100FD008A /* BookDetailService.h */,
+				8449874E1E10C40100FD008A /* BookDetailService.m */,
+			);
+			name = BookDetail;
+			sourceTree = "<group>";
+		};
+		844987501E112B2300FD008A /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				844987511E112B5100FD008A /* BookListService.h */,
+				844987521E112B5100FD008A /* BookListService.m */,
+			);
+			name = BookList;
+			sourceTree = "<group>";
+		};
+		844987541E11339700FD008A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				844987611E1205B400FD008A /* TableViewCell */,
+				844987561E11340E00FD008A /* BookListTableViewController.h */,
+				844987571E11340E00FD008A /* BookListTableViewController.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		844987551E1133A200FD008A /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8449877E1E152A4100FD008A /* CollectionHeaderViewAndFooterView */,
+				844987781E13C8EA00FD008A /* CollectionViewFlowLayout */,
+				844987691E136A2B00FD008A /* CollectionViewCell */,
+				844987591E11343E00FD008A /* BookListCollectionViewController.h */,
+				8449875A1E11343E00FD008A /* BookListCollectionViewController.m */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		8449875C1E12054200FD008A /* BaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8449875D1E12056F00FD008A /* BookBaseTableViewCell.h */,
+				8449875E1E12056F00FD008A /* BookBaseTableViewCell.m */,
+			);
+			name = BaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		844987611E1205B400FD008A /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				844987621E1205EA00FD008A /* BookListTableViewCell.h */,
+				844987631E1205EA00FD008A /* BookListTableViewCell.m */,
+				844987651E120A8500FD008A /* BookListTableViewCell+BookEntity.h */,
+				844987661E120A8500FD008A /* BookListTableViewCell+BookEntity.m */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		844987691E136A2B00FD008A /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8449876E1E136B0100FD008A /* BookCollectionViewCell.h */,
+				8449876F1E136B0100FD008A /* BookCollectionViewCell.m */,
+				844987711E136CB800FD008A /* BookCollectionViewCell+BookEntity.h */,
+				844987721E136CB800FD008A /* BookCollectionViewCell+BookEntity.m */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		8449876A1E136A7700FD008A /* BaseCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8449876B1E136AAD00FD008A /* BookBaseCollectionViewCell.h */,
+				8449876C1E136AAD00FD008A /* BookBaseCollectionViewCell.m */,
+			);
+			name = BaseCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		844987741E13C87300FD008A /* BaseCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				844987751E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.h */,
+				844987761E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.m */,
+			);
+			path = BaseCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		844987781E13C8EA00FD008A /* CollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				844987791E13C94000FD008A /* BookCollectionViewFlowLayout.h */,
+				8449877A1E13C94000FD008A /* BookCollectionViewFlowLayout.m */,
+			);
+			path = CollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		8449877C1E15281F00FD008A /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				8449877D1E15283F00FD008A /* Constants.h */,
+			);
+			name = Define;
+			sourceTree = "<group>";
+		};
+		8449877E1E152A4100FD008A /* CollectionHeaderViewAndFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				8449877F1E152AAB00FD008A /* BookCollectionViewWaterfallHeader.h */,
+				844987801E152AAB00FD008A /* BookCollectionViewWaterfallHeader.m */,
+				844987821E152ACE00FD008A /* BookCollectionViewWaterfallFooter.h */,
+				844987831E152ACE00FD008A /* BookCollectionViewWaterfallFooter.m */,
+			);
+			path = CollectionHeaderViewAndFooterView;
+			sourceTree = "<group>";
+		};
+		844987851E152B0900FD008A /* BaseCollectionHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				844987861E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.h */,
+				844987871E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.m */,
+				844987891E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.h */,
+				8449878A1E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.m */,
+			);
+			name = BaseCollectionHeaderFooterView;
+			path = BaseViewController/BaseCollectionHeaderFooterView;
+			sourceTree = "<group>";
+		};
 		844C13721E0CDAC10091E135 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				8449877C1E15281F00FD008A /* Define */,
+				844987741E13C87300FD008A /* BaseCollectionViewFlowLayout */,
+				8449876A1E136A7700FD008A /* BaseCollectionViewCell */,
+				8449875C1E12054200FD008A /* BaseTableViewCell */,
 				844C13741E0CDAE20091E135 /* BaseNavigationController */,
 				844C13731E0CDAD40091E135 /* BaseViewController */,
+				844987851E152B0900FD008A /* BaseCollectionHeaderFooterView */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -227,6 +523,28 @@
 			path = BaseNavigationController;
 			sourceTree = "<group>";
 		};
+		8477AB691E17622E0029079D /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				8477AB6A1E1762760029079D /* PieChartView.h */,
+				8477AB6B1E1762760029079D /* PieChartView.m */,
+				8477AB731E17731C0029079D /* PieChartView+Author.h */,
+				8477AB741E17731C0029079D /* PieChartView+Author.m */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		8477AB791E17F20A0029079D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8477AB7A1E17F28E0029079D /* BookAnalyticsTableViewCell.h */,
+				8477AB7B1E17F28E0029079D /* BookAnalyticsTableViewCell.m */,
+				8477AB7D1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.h */,
+				8477AB7E1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.m */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		8B6CCB951E03B32300476A35 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +559,8 @@
 		8B6CCB9F1E03CA8800476A35 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				844987551E1133A200FD008A /* CollectionView */,
+				844987541E11339700FD008A /* TableView */,
 				8B6CCB961E03B40900476A35 /* BookListViewController.h */,
 				8B6CCB971E03B40900476A35 /* BookListViewController.m */,
 			);
@@ -261,6 +581,8 @@
 		8B6CCBA11E03CAAA00476A35 /* BookAnalytic */ = {
 			isa = PBXGroup;
 			children = (
+				8477AB791E17F20A0029079D /* TableViewCell */,
+				8477AB691E17622E0029079D /* PieChart */,
 				8B6CCB9C1E03B46600476A35 /* BookAnalyticsViewController.h */,
 				8B6CCB9D1E03B46600476A35 /* BookAnalyticsViewController.m */,
 			);
@@ -301,6 +623,9 @@
 		8BD7BFB51DFE3D4D00F48966 /* StudyPrivateCollection */ = {
 			isa = PBXGroup;
 			children = (
+				844987341E10BDFC00FD008A /* DAO */,
+				844987331E10BDF000FD008A /* Service */,
+				8449872E1E10B5D300FD008A /* Helper */,
 				844987151E0CE9FE00FD008A /* Model */,
 				844C13721E0CDAC10091E135 /* General */,
 				8B6CCB951E03B32300476A35 /* Modules */,
@@ -530,19 +855,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				844987191E0CEA4300FD008A /* BaseModel.m in Sources */,
+				8449877B1E13C94000FD008A /* BookCollectionViewFlowLayout.m in Sources */,
 				8B6CCB9E1E03B46600476A35 /* BookAnalyticsViewController.m in Sources */,
+				844987771E13C8D100FD008A /* BookBaseCollectionViewFlowLayout.m in Sources */,
+				844987701E136B0100FD008A /* BookCollectionViewCell.m in Sources */,
 				844C137A1E0CDB720091E135 /* BaseViewController.m in Sources */,
+				844987811E152AAB00FD008A /* BookCollectionViewWaterfallHeader.m in Sources */,
+				8449874B1E10BF8B00FD008A /* TagDAO.m in Sources */,
+				844987881E152B9500FD008A /* BaseBookCollectionViewWaterfallHeader.m in Sources */,
+				8477AB7C1E17F28E0029079D /* BookAnalyticsTableViewCell.m in Sources */,
+				844987531E112B5100FD008A /* BookListService.m in Sources */,
+				844987381E10BE6800FD008A /* BaseDAO.m in Sources */,
 				844987251E0D75CD00FD008A /* TranslatorModel.m in Sources */,
 				844C13771E0CDB370091E135 /* BaseNavigationController.m in Sources */,
 				8B6CCB9B1E03B44600476A35 /* BookScannerViewController.m in Sources */,
+				8477AB6C1E1762760029079D /* PieChartView.m in Sources */,
 				844987211E0D749D00FD008A /* AuthorModel.m in Sources */,
+				844987421E10BF4C00FD008A /* BookEntityDAO.m in Sources */,
+				8477AB7F1E180ECE0029079D /* BookAnalyticsTableViewCell+Author.m in Sources */,
+				8449878B1E152BA900FD008A /* BaseBookCollectionViewWaterfallFooter.m in Sources */,
 				8B6CCBA51E03CB0E00476A35 /* BookScannerView.m in Sources */,
+				844987321E10B5FD00FD008A /* BookDBHelper.m in Sources */,
 				8B6CCB981E03B40900476A35 /* BookListViewController.m in Sources */,
+				8477AB751E17731C0029079D /* PieChartView+Author.m in Sources */,
+				8449875F1E12056F00FD008A /* BookBaseTableViewCell.m in Sources */,
 				8BD7BFBB1DFE3D4D00F48966 /* AppDelegate.m in Sources */,
+				8449874F1E10C40100FD008A /* BookDetailService.m in Sources */,
 				8BD7BFB81DFE3D4D00F48966 /* main.m in Sources */,
 				8449871D1E0D3EA000FD008A /* BookEntity.m in Sources */,
 				8449872D1E0D77E400FD008A /* BookDetailViewController.m in Sources */,
+				844987641E1205EA00FD008A /* BookListTableViewCell.m in Sources */,
+				8449875B1E11343E00FD008A /* BookListCollectionViewController.m in Sources */,
+				844987671E120A8500FD008A /* BookListTableViewCell+BookEntity.m in Sources */,
+				844987581E11340E00FD008A /* BookListTableViewController.m in Sources */,
+				8449876D1E136AAD00FD008A /* BookBaseCollectionViewCell.m in Sources */,
+				844987841E152ACE00FD008A /* BookCollectionViewWaterfallFooter.m in Sources */,
 				844987291E0D762D00FD008A /* TagModel.m in Sources */,
+				844987451E10BF6200FD008A /* AuthorDAO.m in Sources */,
+				844987481E10BF7A00FD008A /* TranslatorDAO.m in Sources */,
+				844987731E136CB800FD008A /* BookCollectionViewCell+BookEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

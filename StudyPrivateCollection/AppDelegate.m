@@ -11,6 +11,7 @@
 #import "BookScannerViewController.h"
 #import "BookAnalyticsViewController.h"
 #import "BaseNavigationController.h"
+#import "BookDBHelper.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -31,35 +32,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    tabVC.delegate = self;
-    
-    self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];
     
-    BookListViewController *listVC = [BookListViewController new];
-    BaseNavigationController *listNavi = [[BaseNavigationController alloc] initWithRootViewController:listVC];
-    listVC.title = @"我的藏书";
-    listVC.tabBarItem.title = @"我的藏书";
-    listVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-collection"];
-    listVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    [self initDB];
     
-    BookScannerViewController *scannerVC = [BookScannerViewController new];
-    self.scannerVC = scannerVC;
-    scannerVC.tabBarItem.title = @"扫码藏书";
-    scannerVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-scan"];
-    scannerVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
-    
-    BookAnalyticsViewController *analyticsVC = [BookAnalyticsViewController new];
-    BaseNavigationController *analyticsNavi = [[BaseNavigationController alloc] initWithRootViewController:analyticsVC];
-    analyticsVC.title = @"我的";
-    analyticsVC.tabBarItem.title = @"我的";
-    analyticsVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-me"];
-    analyticsVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
-    
-    tabVC.viewControllers = @[listNavi, scannerVC, analyticsNavi];
-    tabVC.tabBar.itemPositioning = UITabBarItemPositioningCentered;
+    [self initTabBar];
     
     return YES;
 }
@@ -96,7 +73,58 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark -- DB
+
+- (void)initDB {
+    
+    // 检测数据库
+    NSString *dbPath = [BookDBHelper dbPath];
+    
+    BOOL dbExist = [[NSFileManager defaultManager] fileExistsAtPath:dbPath isDirectory:nil];
+    
+    if (!dbExist) {
+        [BookDBHelper bulldDataBase];
+    }
+    
+#ifdef DEBUG
+    NSLog(@"dbpath: %@", dbPath);
+#endif
+    
+}
+
 #pragma mark -- tabber
+
+- (void)initTabBar {
+    
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    tabVC.delegate = self;
+    
+    self.window.rootViewController = tabVC;
+    
+    BookListViewController *listVC = [BookListViewController new];
+    BaseNavigationController *listNavi = [[BaseNavigationController alloc] initWithRootViewController:listVC];
+    listVC.title = @"我的藏书";
+    listVC.tabBarItem.title = @"我的藏书";
+    listVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-collection"];
+    listVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    BookScannerViewController *scannerVC = [BookScannerViewController new];
+    self.scannerVC = scannerVC;
+    scannerVC.tabBarItem.title = @"扫码藏书";
+    scannerVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-scan"];
+    scannerVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    BookAnalyticsViewController *analyticsVC = [BookAnalyticsViewController new];
+    BaseNavigationController *analyticsNavi = [[BaseNavigationController alloc] initWithRootViewController:analyticsVC];
+    analyticsVC.title = @"最爱作者";
+    analyticsVC.tabBarItem.title = @"最爱作者";
+    analyticsVC.tabBarItem.image = [UIImage imageNamed:@"tabbar-icon-me"];
+    analyticsVC.tabBarItem.selectedImage = [UIImage imageNamed:@""];
+    
+    tabVC.viewControllers = @[listNavi, scannerVC, analyticsNavi];
+    tabVC.tabBar.itemPositioning = UITabBarItemPositioningCentered;
+    
+}
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     
@@ -109,7 +137,5 @@
     
     return YES;
 }
-
-
 
 @end

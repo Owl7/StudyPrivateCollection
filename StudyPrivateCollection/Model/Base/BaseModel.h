@@ -12,6 +12,8 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)result;
+
 - (NSArray *)modelArrayFromDictArray:(NSArray *)array withModelClass:(Class)modelClass;
 
 @end
